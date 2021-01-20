@@ -31,6 +31,7 @@ CREATE TABLE `v_admin`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '管理员' ROW_FORMAT = Dynamic;
  
+ 
 -- ----------------------------
 -- Records of v_admin
 -- ----------------------------
