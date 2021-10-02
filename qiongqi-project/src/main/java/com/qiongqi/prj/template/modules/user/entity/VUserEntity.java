@@ -68,6 +68,51 @@ public class VUserEntity extends BaseEntity<VUserEntity> {
      */
     @TableField(value = "groupWxId")
     private String groupWxId;
+
+
+    /**
+     * 微信ID
+     */
+    @TableField(value = "openId")
+    private String openId;
+
+    /**
+     * 微信用户昵称
+     */
+    @TableField(value = "nickName")
+    private String nickName;
+
+
+    /**
+     * 性别 0-未知 1-男,2-女
+     */
+    @TableField(value = "gender")
+    private Integer gender;
+
+    /**
+     * 用户country
+     */
+    @TableField(value = "country")
+    private String country;
+
+    /**
+     * 用户city
+     */
+    @TableField(value = "city")
+    private String city;
+
+    /**
+     * 用户province
+     */
+    @TableField(value = "province")
+    private String province;
+
+    /**
+     * 用户会话密钥
+     */
+    @TableField(value = "sessionKey")
+    private String sessionKey;
+
     // ==================== 非持久 ====================
 
 

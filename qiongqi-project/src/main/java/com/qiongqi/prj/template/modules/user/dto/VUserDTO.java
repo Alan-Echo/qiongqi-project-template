@@ -51,9 +51,33 @@ public class VUserDTO extends BasicDTO {
     private String groupName;
 
     private String groupWxId;
-    // ==================== 非持久 ====================
 
+
+    /**
+     * 微信openId
+     */
+    private String openId;
+
+    /**
+     * 用户昵称
+     */
+    private String nickName;
+
+    private Integer gender;
+
+
+    private String country;
+
+    private String city;
+
+    private String province;
+
+    private String seesionKey;
+
+    // ==================== 非持久 ====================
+    private String token;
     private String robotName;
     private String pUserName;
+
 
 }

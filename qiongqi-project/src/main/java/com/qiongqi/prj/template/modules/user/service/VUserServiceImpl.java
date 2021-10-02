@@ -169,6 +169,11 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
     }
 
     @Override
+    public VUserDTO getByOpenId(String openId) {
+        return baseMapper.getByOpenId(openId);
+    }
+
+    @Override
     public List<VUserDTO> getByUserName(String userName) {
         return baseMapper.getByUserName(userName);
     }

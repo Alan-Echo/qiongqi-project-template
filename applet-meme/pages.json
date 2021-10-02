@@ -1,0 +1,45 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		}
+	    ,{
+            "path" : "pages/user/user",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"tabBar": {
+		"borderStyle": "black", //tabbar 上边框的颜色，可选值 black/white (黑色/白色)
+		"backgroundColor": "#ffffff", //背景色 --这个设置白色
+		"color": "#666666", // 默认我文字颜色  这里设置灰黑色
+		"selectedColor": "#00C4FC", // 按钮被选中的 颜色 (这里设置蓝色)
+		"list": [
+			{
+				"pagePath": "pages/index/index", //页面代码文件所在路径
+				"text": "首页", //按钮文字
+				"iconPath": "static/images/menu/index.png", //按钮默认(未被选中)的图标
+				"selectedIconPath": "static/images/menu/indexed.png" //按钮被点击选中的图标
+			},
+			{
+				"pagePath": "pages/user/user", //页面代码文件所在路径
+				"text": "我的", //按钮文字
+				"iconPath": "static/images/menu/wo.png", //按钮默认(未被选中)的图标
+				"selectedIconPath": "static/images/menu/woed.png" //按钮被点击选中的图标
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "美美表情包",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}

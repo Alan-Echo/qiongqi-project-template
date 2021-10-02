@@ -25,6 +25,7 @@ public enum ResponseCode {
     USER_ACCOUNT_ALREADY_EXIST(2009, "账号已存在"),
     Logout_Success(2010,"退出成功"),
     USER_ACCOUNT_USE_BY_OTHERS(2011, "账号下线"),
+    USER_LOGIN_FAIL(2012, "登录失败"),
 
 
     /* 业务错误 */

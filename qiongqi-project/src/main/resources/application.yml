@@ -1,6 +1,4 @@
 
-
-
 # Tomcat
 server:
   tomcat:
@@ -9,12 +7,12 @@ server:
     min-spare-threads: 30
   port: 9596
   servlet:
-    context-path: /qiongqi
+    context-path: /prj
 
 spring:
   # 环境 dev|test|prod
   profiles:
-    active: dev-mysql
+    active: dev
   messages:
     encoding: UTF-8
     basename: i18n/messages
@@ -23,19 +21,16 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
       enabled: true
-  datasource:
-    #MySQL
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 962464
-    url: jdbc:mysql://localhost:3306/qiongqi-project?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-  redis:
-    database: 1
-    host: 127.0.0.1
-    port: 6379
-    pool:
-      min-idle: 10000
-    timeout: 30000
+#  datasource:
+#    #MySQL
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    password: 962464
+#    url: jdbc:mysql://localhost:3306/graduation-project?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+##    username: graduation
+##    password: graduation
+##    url: jdbc:mysql://localhost:3306/graduation?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+
 
 #引入日志配置文件
 #=====================================  log  =============================

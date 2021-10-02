@@ -107,6 +107,8 @@ public interface VUserService extends BaseService<VUserEntity> {
 
     List<VUserDTO> getByWxId(String wxId);
 
+    VUserDTO getByOpenId(String openid);
+
 
     // ==================== 其他 ====================
 

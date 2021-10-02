@@ -49,6 +49,9 @@ public interface VUserMapper extends BaseMapper<VUserEntity> {
     @Select("select * from V_USER where userName = #{userName}")
     List<VUserDTO> getByUserName(@Param("userName") String userName);
 
+    @Select("select * from V_USER where openId = #{openId} ")
+    VUserDTO getByOpenId(@Param("openId") String openId);
+
     // ==================== ADD、MODIFY、REMOVE ===================
 
 
