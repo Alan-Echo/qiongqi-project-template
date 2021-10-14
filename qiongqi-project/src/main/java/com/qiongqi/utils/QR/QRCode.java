@@ -3,15 +3,17 @@ package com.qiongqi.utils.QR;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-import com.qiongqi.utils.File.FileUtils;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.InputStream;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,15 +28,43 @@ public class QRCode {
     /** 定义LOGO图片的高度 */
     private static final int LOGO_HEIGHT = 50;
 
+    public static MultipartFile getQrCode(String contents){
+        MultipartFile multipartFile = null;
+        try {
+            BufferedImage bufferedImage = CreateQrCode(contents);
+            //创建一个ByteArrayOutputStream
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            //把BufferedImage写入ByteArrayOutputStream
+            ImageIO.write(bufferedImage, "jpg", os);
+            //ByteArrayOutputStream转成InputStream
+            InputStream input = new ByteArrayInputStream(os.toByteArray());
+            //InputStream转成MultipartFile
+            multipartFile =new MockMultipartFile("file", "file.jpg", "text/plain", input);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return multipartFile;
+    }
 
-    public void getQR(String contents, HttpServletResponse response) throws Exception{
+    public static void getQR(String contents, HttpServletResponse response){
+        BufferedImage image = null;
+        try {
+            image = CreateQrCode(contents);
+            /** 向浏览器输出二维码 */
+            //MatrixToImageWriter.writeToStream(matrix, "png", response.getOutputStream());
+            ImageIO.write(image, "png", response.getOutputStream());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private static BufferedImage CreateQrCode(String contents) throws WriterException {
 
         /** 判断二维码中URL */
         if (contents == null || "".equals(contents)){
             contents = "二维码生成失败";
         }
-
-
 
         /** 定义Map集合封装二维码配置信息 */
         Map<EncodeHintType, Object> hints = new HashMap<>();
@@ -74,13 +104,13 @@ public class QRCode {
 //        Resource resource = new ClassPathResource("/static/images/logo.png");
 //        System.out.println(resource);
 //        File file =  resource.getFile();
-        InputStream inputStream = FileUtils.ReadFile("/static/images/logo.png");
-        BufferedImage logo = ImageIO.read(inputStream);
+//        InputStream inputStream = FileUtils.ReadFile("/static/images/logo.png");
+//        BufferedImage logo = ImageIO.read(inputStream);
 //        BufferedImage logo = ImageIO.read(new File(this.getClass().getResource("/static/images/logo.png").getPath()));
         /** 获取缓冲流图片的画笔 */
         Graphics2D g = (Graphics2D)image.getGraphics();
         /** 在二维码图片中间绘制公司logo */
-        g.drawImage(logo, (matrix_width - LOGO_WIDTH) / 2,(matrix_height - LOGO_HEIGHT) / 2, LOGO_WIDTH, LOGO_HEIGHT, null);
+//        g.drawImage(logo, (matrix_width - LOGO_WIDTH) / 2,(matrix_height - LOGO_HEIGHT) / 2, LOGO_WIDTH, LOGO_HEIGHT, null);
 
         /** 设置画笔的颜色 */
         g.setColor(Color.WHITE);
@@ -91,9 +121,7 @@ public class QRCode {
         /** 绘制圆角矩形 */
         g.drawRoundRect((matrix_width - LOGO_WIDTH) / 2, (matrix_height - LOGO_HEIGHT) / 2, LOGO_WIDTH, LOGO_HEIGHT, 10, 10);
 
-        /** 向浏览器输出二维码 */
-        //MatrixToImageWriter.writeToStream(matrix, "png", response.getOutputStream());
-        ImageIO.write(image, "png", response.getOutputStream());
+        return image;
     }
 
 }
