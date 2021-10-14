@@ -1,13 +1,13 @@
-package com.qiongqi.modules.user.service;
+package com.qiongqi.modules.qiniu.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.qiongqi.config.MybatisPlus.service.BaseServiceImpl;
-import com.qiongqi.modules.user.model.dto.VUserDTO;
-import com.qiongqi.modules.user.model.entity.VUserEntity;
-import com.qiongqi.modules.user.mapper.VUserMapper;
+import com.qiongqi.modules.qiniu.mapper.VQiniuMapper;
+import com.qiongqi.modules.qiniu.model.dto.VQiniuDTO;
+import com.qiongqi.modules.qiniu.model.entity.VQiniuEntity;
 import com.qiongqi.utils.ConvertUtils;
 import com.qiongqi.utils.page.PageData;
 import com.qiongqi.utils.page.PageUtils;
@@ -21,15 +21,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Description: 【 用户表 Service接口实现类 】
+ * Description: 【 七牛云 Service接口实现类 】
  *
  * @author : ※狗尾巴草
  * @version : 1.0.0
  * @email : "m962464oo@gmail.com"
- * @date : 2021-01-16 14:22:50
+ * @date : 2021-06-29 00:03:34
  */
 @Service
-public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> implements VUserService {
+public class VQiniuServiceImpl extends BaseServiceImpl<VQiniuMapper, VQiniuEntity> implements VQiniuService {
 
     // ==================== 查询 ====================
 
@@ -40,17 +40,17 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-06-29 00:03:34
      */
     @Override
-    public PageData<VUserDTO> page(Map<String, Object> queryParams) {
+    public PageData<VQiniuDTO> page(Map<String, Object> queryParams) {
         PageUtils.initPage(queryParams);
 
-        IPage<VUserEntity> page = baseMapper.selectPage(
+        IPage<VQiniuEntity> page = baseMapper.selectPage(
                 PageUtils.initPage(queryParams),
-                getWrapper(queryParams).orderByDesc(VUserEntity::getCreateTime)
+                getWrapper(queryParams).orderByDesc(VQiniuEntity::getCreateTime)
         );
-        return getPageData(page, VUserDTO.class);
+        return getPageData(page, VQiniuDTO.class);
     }
 
     /**
@@ -60,13 +60,13 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-06-29 00:03:34
      */
     @Override
-    public List<VUserDTO> list(Map<String, Object> queryParams) {
-        List<VUserEntity> entityList = baseMapper.selectList(getWrapper(queryParams));
+    public List<VQiniuDTO> list(Map<String, Object> queryParams) {
+        List<VQiniuEntity> entityList = baseMapper.selectList(getWrapper(queryParams));
 
-        return ConvertUtils.sourceToTarget(entityList, VUserDTO.class);
+        return ConvertUtils.sourceToTarget(entityList, VQiniuDTO.class);
     }
 
     /**
@@ -76,11 +76,11 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-06-29 00:03:34
      */
     @Override
-    public VUserDTO get(Long id) {
-        VUserDTO dto = baseMapper.queryOneById(id);
+    public VQiniuDTO get(Long id) {
+        VQiniuDTO dto = baseMapper.queryOneById(id);
 
         return dto;
     }
@@ -94,14 +94,14 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-06-29 00:03:34
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public VUserEntity save(VUserDTO dto) {
-        VUserEntity entity = ConvertUtils.sourceToTarget(dto, VUserEntity.class);
-        save(entity);
-        return entity;
+    public boolean save(VQiniuDTO dto) {
+        VQiniuEntity entity = ConvertUtils.sourceToTarget(dto, VQiniuEntity.class);
+
+        return save(entity);
     }
 
     /**
@@ -111,12 +111,12 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-06-29 00:03:34
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean update(VUserDTO dto) {
-        VUserEntity entity = ConvertUtils.sourceToTarget(dto, VUserEntity.class);
+    public boolean update(VQiniuDTO dto) {
+        VQiniuEntity entity = ConvertUtils.sourceToTarget(dto, VQiniuEntity.class);
 
 
         return updateById(entity);
@@ -129,7 +129,7 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-06-29 00:03:34
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -147,7 +147,7 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-06-29 00:03:34
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -158,26 +158,27 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
         return removeByIds(Arrays.asList(ids));
     }
 
+    /**
+     * 描述: 【 修改状态:0:禁用;1启用 】
+     *
+     * @param id
+     * @param status
+     * @author : ※狗尾巴草
+     * @email : "m962464oo@gmail.com"
+     * @date : 2021-06-29 00:03:34
+     */
     @Override
-    public VUserDTO getByWxIdAndRobotId(String wxId,Long robotId) {
-        return baseMapper.getByWxIdAndRobotId(wxId,robotId);
+    @Transactional(rollbackFor = Exception.class)
+    public boolean changeStatus(Long id, Integer status) {
+        VQiniuEntity entity = baseMapper.selectById(id);
+        entity.setStatus(status);
+        return updateById(entity);
     }
 
     @Override
-    public List<VUserDTO> getByWxId(String wxId) {
-        return baseMapper.getByWxId(wxId);
+    public VQiniuDTO getByStatus(int status) {
+        return baseMapper.getByStatus(status);
     }
-
-    @Override
-    public VUserDTO getByOpenId(String openId) {
-        return baseMapper.getByOpenId(openId);
-    }
-
-    @Override
-    public List<VUserDTO> getByUserName(String userName) {
-        return baseMapper.getByUserName(userName);
-    }
-
 
     // ==================== 其他 ====================
 
@@ -188,41 +189,33 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @param queryParams
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-06-29 00:03:34
      */
-    private LambdaQueryWrapper<VUserEntity> getWrapper(Map<String, Object> queryParams) {
-        LambdaQueryWrapper<VUserEntity> wrapper = new LambdaQueryWrapper<>();
+    private LambdaQueryWrapper<VQiniuEntity> getWrapper(Map<String, Object> queryParams) {
+        LambdaQueryWrapper<VQiniuEntity> wrapper = new LambdaQueryWrapper<>();
 
         //时间查询
         JSONObject dateTime = JSON.parseObject(MapUtils.getString(queryParams, "dateTime"));
-        if (dateTime!=null&&dateTime.size()>0){
+        if (dateTime != null && dateTime.size() > 0) {
             String startTime = dateTime.getString("startTime");
             String endTime = dateTime.getString("endTime");
-            wrapper.ge(StringUtils.isNotBlank(startTime), VUserEntity::getCreateTime,startTime);
-            wrapper.le(StringUtils.isNotBlank(endTime),VUserEntity::getCreateTime,endTime);
+            wrapper.ge(StringUtils.isNotBlank(startTime), VQiniuEntity::getCreateTime, startTime);
+            wrapper.le(StringUtils.isNotBlank(endTime), VQiniuEntity::getCreateTime, endTime);
         }
-        // 用户名查询
-        String userName = MapUtils.getString(queryParams, "userName", "");
-        wrapper.and(StringUtils.isNotBlank(userName.trim()),s->s.like(VUserEntity::getUserName,userName.trim()));
 
-        // 所属群 查询
-        String groupName = MapUtils.getString(queryParams, "groupName", "");
-        wrapper.and(StringUtils.isNotBlank(groupName.trim()),s->s.like(VUserEntity::getGroupName,groupName.trim()));
+        // 空间名
+        String bucketName = MapUtils.getString(queryParams, "bucketName", "");
+        wrapper.and(StringUtils.isNotBlank(bucketName.trim()), s -> s.like(VQiniuEntity::getBucketName, bucketName.trim()));
 
-        // 所属群wxid 查询
-        String groupWxId = MapUtils.getString(queryParams, "groupWxId", "");
-        wrapper.and(StringUtils.isNotBlank(groupWxId.trim()),s->s.like(VUserEntity::getGroupWxId,groupWxId.trim()));
+        // 地区搜索
+        String zone = MapUtils.getString(queryParams, "zone", "");
+        wrapper.and(StringUtils.isNotBlank(zone.trim()), s -> s.eq(VQiniuEntity::getZone, zone.trim()));
 
+        // 状态
+        Integer searchStatus = MapUtils.getInteger(queryParams, "status", null);
+        wrapper.eq(searchStatus != null, VQiniuEntity::getStatus, searchStatus);
 
-        //微信id 查询
-        String wxId = MapUtils.getString(queryParams, "wxId", "");
-        wrapper.eq(StringUtils.isNotBlank(wxId.trim()),VUserEntity::getWxId,wxId);
-
-        //机器人Id
-        Long robotId = MapUtils.getLong(queryParams, "robotId", null);
-        wrapper.eq(robotId!=null,VUserEntity::getRobotId,robotId);
-
- // others
+        // others
 
         return wrapper;
     }

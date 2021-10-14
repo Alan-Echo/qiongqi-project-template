@@ -1,22 +1,22 @@
-package com.qiongqi.modules.user.service;
+package com.qiongqi.modules.log_moneys.service;
 
 import com.qiongqi.config.MybatisPlus.service.BaseService;
-import com.qiongqi.modules.user.model.dto.VUserDTO;
-import com.qiongqi.modules.user.model.entity.VUserEntity;
+import com.qiongqi.modules.log_moneys.model.dto.VLogMoneysDTO;
+import com.qiongqi.modules.log_moneys.model.entity.VLogMoneysEntity;
 import com.qiongqi.utils.page.PageData;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * Description: 【 用户表 Service接口 】
+ * Description: 【 资金流水表 Service接口 】
  *
  * @author : ※狗尾巴草
  * @version : 1.0.0
  * @email : "m962464oo@gmail.com"
- * @date : 2021-01-16 14:22:50
+ * @date : 2021-10-12 01:30:01
  */
-public interface VUserService extends BaseService<VUserEntity> {
+public interface VLogMoneysService extends BaseService<VLogMoneysEntity> {
 
     // ==================== 查询 ====================
 
@@ -27,9 +27,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-10-12 01:30:01
      */
-    PageData<VUserDTO> page(Map<String, Object> queryParams);
+    PageData<VLogMoneysDTO> page(Map<String, Object> queryParams);
 
     /**
      * Description:【 条件查询 】
@@ -38,9 +38,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-10-12 01:30:01
      */
-    List<VUserDTO> list(Map<String, Object> queryParams);
+    List<VLogMoneysDTO> list(Map<String, Object> queryParams);
 
     /**
      * Description:【 通过ID获取单条数据 】
@@ -49,9 +49,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-10-12 01:30:01
      */
-    VUserDTO get(Long id);
+    VLogMoneysDTO get(Long id);
 
     // ==================== ADD、MODIFY、REMOVE ===================
 
@@ -62,9 +62,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-10-12 01:30:01
      */
-    VUserEntity save(VUserDTO dto);
+    boolean save(VLogMoneysDTO dto);
 
     /**
      * Description:【 修改数据 】
@@ -73,9 +73,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-10-12 01:30:01
      */
-    boolean update(VUserDTO dto);
+    boolean update(VLogMoneysDTO dto);
 
     /**
      * Description:【 通过ID删除数据 】
@@ -84,7 +84,7 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-10-12 01:30:01
      */
     boolean delete(Long id);
 
@@ -95,19 +95,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-10-12 01:30:01
      */
     boolean deleteBatch(Long[] ids);
-
-//    VUserDTO getByWxId(String wxId);
-
-    List<VUserDTO> getByUserName(String userName);
-
-    VUserDTO getByWxIdAndRobotId(String wxid, Long robotId);
-
-    List<VUserDTO> getByWxId(String wxId);
-
-    VUserDTO getByOpenId(String openid);
 
 
     // ==================== 其他 ====================

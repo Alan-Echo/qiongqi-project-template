@@ -1,4 +1,4 @@
-package com.qiongqi.modules.user.dto;
+package com.qiongqi.modules.user.model.dto;
 
 import com.qiongqi.config.MybatisPlus.dto.BasicDTO;
 import lombok.Data;
@@ -20,64 +20,52 @@ import java.util.Date;
 public class VUserDTO extends BasicDTO {
 
     // ==================== 字段名 ====================
-
-    /**
-     * 微信ID
-     */
-    private String wxId;
-
     /**
      * 用户昵称
      */
     private String userName;
 
-    private Integer score;
-
-    @DateTimeFormat(
-            pattern = "yyyy-MM-dd HH:mm:ss"
-    )
-    @JsonFormat(
-            pattern = "yyyy-MM-dd HH:mm:ss",
-            timezone = "GMT+8"
-    )
-    private Date clockIn;
+    /**
+     * 积分
+     */
+    private Integer integral;
 
     private String avatar;
 
-    private Long robotId;
-
     private Long pid;
+    /**
+     * 是否是VIP;1:是;0:否
+     */
+    private Integer isVip;
 
-    private String groupName;
-
-    private String groupWxId;
-
-
+    /**
+     * vip到期时间
+     */
+    private Date expiredTime;
+    /**
+     * 邮箱
+     */
+    private String email;
+    /**
+     * 用户province
+     */
+    private String phone;
+    /**
+     * 微信ID
+     */
+    private String wxId;
     /**
      * 微信openId
      */
     private String openId;
 
     /**
-     * 用户昵称
+     * QQ
      */
-    private String nickName;
-
-    private Integer gender;
-
-
-    private String country;
-
-    private String city;
-
-    private String province;
-
-    private String seesionKey;
+    private String qq;
 
     // ==================== 非持久 ====================
     private String token;
-    private String robotName;
-    private String pUserName;
-
+    private String verCode;
 
 }

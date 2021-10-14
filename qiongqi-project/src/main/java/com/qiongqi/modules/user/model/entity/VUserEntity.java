@@ -1,4 +1,4 @@
-package com.qiongqi.modules.user.entity;
+package com.qiongqi.modules.user.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

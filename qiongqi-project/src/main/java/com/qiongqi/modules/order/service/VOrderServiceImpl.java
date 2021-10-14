@@ -1,13 +1,13 @@
-package com.qiongqi.modules.user.service;
+package com.qiongqi.modules.order.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.qiongqi.config.MybatisPlus.service.BaseServiceImpl;
-import com.qiongqi.modules.user.model.dto.VUserDTO;
-import com.qiongqi.modules.user.model.entity.VUserEntity;
-import com.qiongqi.modules.user.mapper.VUserMapper;
+import com.qiongqi.modules.order.mapper.VOrderMapper;
+import com.qiongqi.modules.order.model.dto.VOrderDTO;
+import com.qiongqi.modules.order.model.entity.VOrderEntity;
 import com.qiongqi.utils.ConvertUtils;
 import com.qiongqi.utils.page.PageData;
 import com.qiongqi.utils.page.PageUtils;
@@ -21,15 +21,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Description: 【 用户表 Service接口实现类 】
+ * Description: 【 订单 Service接口实现类 】
  *
  * @author : ※狗尾巴草
  * @version : 1.0.0
  * @email : "m962464oo@gmail.com"
- * @date : 2021-01-16 14:22:50
+ * @date : 2021-10-09 23:57:42
  */
 @Service
-public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> implements VUserService {
+public class VOrderServiceImpl extends BaseServiceImpl<VOrderMapper, VOrderEntity> implements VOrderService {
 
     // ==================== 查询 ====================
 
@@ -40,17 +40,17 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-10-09 23:57:42
      */
     @Override
-    public PageData<VUserDTO> page(Map<String, Object> queryParams) {
+    public PageData<VOrderDTO> page(Map<String, Object> queryParams) {
         PageUtils.initPage(queryParams);
 
-        IPage<VUserEntity> page = baseMapper.selectPage(
+        IPage<VOrderEntity> page = baseMapper.selectPage(
                 PageUtils.initPage(queryParams),
-                getWrapper(queryParams).orderByDesc(VUserEntity::getCreateTime)
+                getWrapper(queryParams).orderByDesc(VOrderEntity::getCreateTime)
         );
-        return getPageData(page, VUserDTO.class);
+        return getPageData(page, VOrderDTO.class);
     }
 
     /**
@@ -60,13 +60,13 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-10-09 23:57:42
      */
     @Override
-    public List<VUserDTO> list(Map<String, Object> queryParams) {
-        List<VUserEntity> entityList = baseMapper.selectList(getWrapper(queryParams));
+    public List<VOrderDTO> list(Map<String, Object> queryParams) {
+        List<VOrderEntity> entityList = baseMapper.selectList(getWrapper(queryParams));
 
-        return ConvertUtils.sourceToTarget(entityList, VUserDTO.class);
+        return ConvertUtils.sourceToTarget(entityList, VOrderDTO.class);
     }
 
     /**
@@ -76,11 +76,11 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-10-09 23:57:42
      */
     @Override
-    public VUserDTO get(Long id) {
-        VUserDTO dto = baseMapper.queryOneById(id);
+    public VOrderDTO get(Long id) {
+        VOrderDTO dto = baseMapper.queryOneById(id);
 
         return dto;
     }
@@ -94,12 +94,12 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-10-09 23:57:42
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public VUserEntity save(VUserDTO dto) {
-        VUserEntity entity = ConvertUtils.sourceToTarget(dto, VUserEntity.class);
+    public VOrderEntity save(VOrderDTO dto) {
+        VOrderEntity entity = ConvertUtils.sourceToTarget(dto, VOrderEntity.class);
         save(entity);
         return entity;
     }
@@ -111,12 +111,12 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-10-09 23:57:42
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean update(VUserDTO dto) {
-        VUserEntity entity = ConvertUtils.sourceToTarget(dto, VUserEntity.class);
+    public boolean update(VOrderDTO dto) {
+        VOrderEntity entity = ConvertUtils.sourceToTarget(dto, VOrderEntity.class);
 
 
         return updateById(entity);
@@ -129,7 +129,7 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-10-09 23:57:42
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -147,7 +147,7 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @return
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-10-09 23:57:42
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -156,26 +156,6 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
 
         //删除数据
         return removeByIds(Arrays.asList(ids));
-    }
-
-    @Override
-    public VUserDTO getByWxIdAndRobotId(String wxId,Long robotId) {
-        return baseMapper.getByWxIdAndRobotId(wxId,robotId);
-    }
-
-    @Override
-    public List<VUserDTO> getByWxId(String wxId) {
-        return baseMapper.getByWxId(wxId);
-    }
-
-    @Override
-    public VUserDTO getByOpenId(String openId) {
-        return baseMapper.getByOpenId(openId);
-    }
-
-    @Override
-    public List<VUserDTO> getByUserName(String userName) {
-        return baseMapper.getByUserName(userName);
     }
 
 
@@ -188,41 +168,29 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
      * @param queryParams
      * @author : ※狗尾巴草
      * @email : "m962464oo@gmail.com"
-     * @date : 2021-01-16 14:22:50
+     * @date : 2021-10-09 23:57:42
      */
-    private LambdaQueryWrapper<VUserEntity> getWrapper(Map<String, Object> queryParams) {
-        LambdaQueryWrapper<VUserEntity> wrapper = new LambdaQueryWrapper<>();
+    private LambdaQueryWrapper<VOrderEntity> getWrapper(Map<String, Object> queryParams) {
+        LambdaQueryWrapper<VOrderEntity> wrapper = new LambdaQueryWrapper<>();
 
         //时间查询
         JSONObject dateTime = JSON.parseObject(MapUtils.getString(queryParams, "dateTime"));
-        if (dateTime!=null&&dateTime.size()>0){
+        if (dateTime != null && dateTime.size() > 0) {
             String startTime = dateTime.getString("startTime");
             String endTime = dateTime.getString("endTime");
-            wrapper.ge(StringUtils.isNotBlank(startTime), VUserEntity::getCreateTime,startTime);
-            wrapper.le(StringUtils.isNotBlank(endTime),VUserEntity::getCreateTime,endTime);
+            wrapper.ge(StringUtils.isNotBlank(startTime), VOrderEntity::getCreateTime, startTime);
+            wrapper.le(StringUtils.isNotBlank(endTime), VOrderEntity::getCreateTime, endTime);
         }
-        // 用户名查询
-        String userName = MapUtils.getString(queryParams, "userName", "");
-        wrapper.and(StringUtils.isNotBlank(userName.trim()),s->s.like(VUserEntity::getUserName,userName.trim()));
 
-        // 所属群 查询
-        String groupName = MapUtils.getString(queryParams, "groupName", "");
-        wrapper.and(StringUtils.isNotBlank(groupName.trim()),s->s.like(VUserEntity::getGroupName,groupName.trim()));
+        // 关键字
+        //String searchWord = MapUtils.getString(queryParams, "searchWord", "");
+        //wrapper.and(StringUtils.isNotBlank(searchWord.trim()), s -> s.like(VOrderEntity::getName, searchWord.trim()));
 
-        // 所属群wxid 查询
-        String groupWxId = MapUtils.getString(queryParams, "groupWxId", "");
-        wrapper.and(StringUtils.isNotBlank(groupWxId.trim()),s->s.like(VUserEntity::getGroupWxId,groupWxId.trim()));
+        // 状态
+        //Integer searchStatus = MapUtils.getInteger(queryParams, "status", null);
+        //wrapper.eq(searchStatus != null, VOrderEntity::getStatus, searchStatus);
 
-
-        //微信id 查询
-        String wxId = MapUtils.getString(queryParams, "wxId", "");
-        wrapper.eq(StringUtils.isNotBlank(wxId.trim()),VUserEntity::getWxId,wxId);
-
-        //机器人Id
-        Long robotId = MapUtils.getLong(queryParams, "robotId", null);
-        wrapper.eq(robotId!=null,VUserEntity::getRobotId,robotId);
-
- // others
+        // others
 
         return wrapper;
     }

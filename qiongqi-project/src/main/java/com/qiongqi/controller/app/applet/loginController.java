@@ -3,8 +3,8 @@ package com.qiongqi.controller.app.applet;
 import com.alibaba.fastjson.JSONObject;
 import com.qiongqi.modules.applet.model.dto.VAppletDTO;
 import com.qiongqi.modules.applet.service.VAppletService;
-import com.qiongqi.modules.user.dto.VUserDTO;
-import com.qiongqi.modules.user.entity.VUserEntity;
+import com.qiongqi.modules.user.model.dto.VUserDTO;
+import com.qiongqi.modules.user.model.entity.VUserEntity;
 import com.qiongqi.modules.user.service.VUserService;
 import com.qiongqi.utils.ConvertUtils;
 import com.qiongqi.utils.JWT.XTokenUtils;
@@ -74,12 +74,6 @@ public class loginController {
             byOpenId.setAvatar(userInfo.getString("avatarUrl"));
             byOpenId.setNickName(userInfo.getString("nickName"));
             byOpenId.setOpenId(openid);
-            byOpenId.setSeesionKey(jsonObject.getString("session_key"));
-
-            byOpenId.setGender(userInfo.getIntValue("gender"));
-            byOpenId.setCountry(userInfo.getString("country"));
-            byOpenId.setProvince(userInfo.getString("province"));
-            byOpenId.setCity(userInfo.getString("city"));
             entity = vUserService.save(byOpenId);//将数据存进数据库
             //生成登录成功的token令牌
         }else {
@@ -87,7 +81,6 @@ public class loginController {
             byOpenId.setAvatar(userInfo.getString("avatarUrl"));
             byOpenId.setNickName(userInfo.getString("nickName"));
             byOpenId.setOpenId(openid);
-            byOpenId.setSeesionKey(jsonObject.getString("session_key"));
             vUserService.update(byOpenId);
             entity = ConvertUtils.sourceToTarget(byOpenId,VUserEntity.class);
         }

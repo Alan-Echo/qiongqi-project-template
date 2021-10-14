@@ -1,4 +1,4 @@
-package com.qiongqi.controller.rear.common;
+package com.qiongqi.controller.common;
 
 import com.qiongqi.config.Redis.RedisUtil;
 import com.qiongqi.modules.admin.service.VAdminService;

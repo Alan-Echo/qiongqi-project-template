@@ -1,22 +1,22 @@
-package com.qiongqi.modules.user.service;
+package com.qiongqi.modules.qiniu.service;
 
 import com.qiongqi.config.MybatisPlus.service.BaseService;
-import com.qiongqi.modules.user.model.dto.VUserDTO;
-import com.qiongqi.modules.user.model.entity.VUserEntity;
+import com.qiongqi.modules.qiniu.model.dto.VQiniuDTO;
+import com.qiongqi.modules.qiniu.model.entity.VQiniuEntity;
 import com.qiongqi.utils.page.PageData;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * Description: 【 用户表 Service接口 】
+ * Description: 【 七牛云 Service接口 】
  *
  * @author : ※狗尾巴草
  * @version : 1.0.0
  * @email : "m962464oo@gmail.com"
- * @date : 2021-01-16 14:22:50
+ * @date : 2021-06-29 00:03:34
  */
-public interface VUserService extends BaseService<VUserEntity> {
+public interface VQiniuService extends BaseService<VQiniuEntity> {
 
     // ==================== 查询 ====================
 
@@ -27,9 +27,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-06-29 00:03:34
      */
-    PageData<VUserDTO> page(Map<String, Object> queryParams);
+    PageData<VQiniuDTO> page(Map<String, Object> queryParams);
 
     /**
      * Description:【 条件查询 】
@@ -38,9 +38,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-06-29 00:03:34
      */
-    List<VUserDTO> list(Map<String, Object> queryParams);
+    List<VQiniuDTO> list(Map<String, Object> queryParams);
 
     /**
      * Description:【 通过ID获取单条数据 】
@@ -49,9 +49,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-06-29 00:03:34
      */
-    VUserDTO get(Long id);
+    VQiniuDTO get(Long id);
 
     // ==================== ADD、MODIFY、REMOVE ===================
 
@@ -62,9 +62,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-06-29 00:03:34
      */
-    VUserEntity save(VUserDTO dto);
+    boolean save(VQiniuDTO dto);
 
     /**
      * Description:【 修改数据 】
@@ -73,9 +73,9 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-06-29 00:03:34
      */
-    boolean update(VUserDTO dto);
+    boolean update(VQiniuDTO dto);
 
     /**
      * Description:【 通过ID删除数据 】
@@ -84,7 +84,7 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-06-29 00:03:34
      */
     boolean delete(Long id);
 
@@ -95,20 +95,22 @@ public interface VUserService extends BaseService<VUserEntity> {
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
-     * @date: 2021-01-16 14:22:50
+     * @date: 2021-06-29 00:03:34
      */
     boolean deleteBatch(Long[] ids);
 
-//    VUserDTO getByWxId(String wxId);
+    /**
+     * 描述: 【 修改状态:0:禁用;1启用 】
+     *
+     * @param id
+     * @param status
+     * @author : ※狗尾巴草
+     * @email : "m962464oo@gmail.com"
+     * @date : 2021-06-29 00:03:34
+     */
+    boolean changeStatus(Long id, Integer status);
 
-    List<VUserDTO> getByUserName(String userName);
-
-    VUserDTO getByWxIdAndRobotId(String wxid, Long robotId);
-
-    List<VUserDTO> getByWxId(String wxId);
-
-    VUserDTO getByOpenId(String openid);
-
+    VQiniuDTO getByStatus(int status);
 
     // ==================== 其他 ====================
 
