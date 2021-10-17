@@ -1,8 +1,8 @@
 package com.qiongqi.modules.admin.service;
 
-import com.qiongqi.modules.admin.entity.VRoleEntity;
+import com.qiongqi.modules.admin.model.entity.VRoleEntity;
 import com.qiongqi.config.MybatisPlus.service.BaseService;
-import com.qiongqi.modules.admin.dto.VRoleDTO;
+import com.qiongqi.modules.admin.model.dto.VRoleDTO;
 import com.qiongqi.utils.page.PageData;
 
 import java.util.List;

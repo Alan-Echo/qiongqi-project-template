@@ -2,10 +2,10 @@ package com.qiongqi.modules.admin.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.qiongqi.modules.admin.entity.VRoleEntity;
+import com.qiongqi.modules.admin.model.entity.VRoleEntity;
 import com.qiongqi.modules.admin.mapper.VRoleMapper;
 import com.qiongqi.config.MybatisPlus.service.BaseServiceImpl;
-import com.qiongqi.modules.admin.dto.VRoleDTO;
+import com.qiongqi.modules.admin.model.dto.VRoleDTO;
 import com.qiongqi.utils.ConvertUtils;
 import com.qiongqi.utils.page.PageData;
 import com.qiongqi.utils.page.PageUtils;

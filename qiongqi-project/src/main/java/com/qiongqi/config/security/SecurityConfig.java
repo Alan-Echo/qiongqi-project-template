@@ -51,14 +51,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] excludedAuthPages = {
             "/qiongqi/project/auth/login",
             "/qiongqi/project/auth/logout",
+            "/app/common/verCode/imgCode/**",
+            "/app/web/login",
+            "/app/applet/login",
+            "/auth/login",
+            "/auth/logout",
+            "/app/web/reg"
     };
-//    private static final String[] HadRoleUrl={
-//            "/user/**",
-//            "/**/user/**",
-//            "/common/upload/**",
-//            "/**/publish/**",
-//            "/**/delete/**"
-//    };
+
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -88,7 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable();
         http.authorizeRequests()
-//                .antMatchers(excludedAuthPages).permitAll()  //无需进行权限过滤的请求路径
+                .antMatchers(excludedAuthPages).permitAll()  //无需进行权限过滤的请求路径
 //                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("admin")
 //                .antMatchers(HadRoleUrl).hasAnyRole("user","admin")

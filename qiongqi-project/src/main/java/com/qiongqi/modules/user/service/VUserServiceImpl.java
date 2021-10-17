@@ -205,22 +205,10 @@ public class VUserServiceImpl extends BaseServiceImpl<VUserMapper, VUserEntity> 
         String userName = MapUtils.getString(queryParams, "userName", "");
         wrapper.and(StringUtils.isNotBlank(userName.trim()),s->s.like(VUserEntity::getUserName,userName.trim()));
 
-        // 所属群 查询
-        String groupName = MapUtils.getString(queryParams, "groupName", "");
-        wrapper.and(StringUtils.isNotBlank(groupName.trim()),s->s.like(VUserEntity::getGroupName,groupName.trim()));
-
-        // 所属群wxid 查询
-        String groupWxId = MapUtils.getString(queryParams, "groupWxId", "");
-        wrapper.and(StringUtils.isNotBlank(groupWxId.trim()),s->s.like(VUserEntity::getGroupWxId,groupWxId.trim()));
-
-
         //微信id 查询
         String wxId = MapUtils.getString(queryParams, "wxId", "");
         wrapper.eq(StringUtils.isNotBlank(wxId.trim()),VUserEntity::getWxId,wxId);
 
-        //机器人Id
-        Long robotId = MapUtils.getLong(queryParams, "robotId", null);
-        wrapper.eq(robotId!=null,VUserEntity::getRobotId,robotId);
 
  // others
 

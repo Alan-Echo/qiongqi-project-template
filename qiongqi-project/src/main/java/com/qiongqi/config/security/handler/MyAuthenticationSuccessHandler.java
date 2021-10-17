@@ -2,7 +2,7 @@ package com.qiongqi.config.security.handler;
 
 import com.alibaba.fastjson.JSON;
 import com.qiongqi.modules.admin.service.VAdminService;
-import com.qiongqi.modules.admin.dto.VAdminDTO;
+import com.qiongqi.modules.admin.model.dto.VAdminDTO;
 import com.qiongqi.utils.JWT.XTokenUtils;
 import com.qiongqi.utils.response.code.ResponseCode;
 import com.qiongqi.utils.response.data.ResponseData;

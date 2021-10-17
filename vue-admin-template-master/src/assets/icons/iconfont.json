@@ -1,0 +1,86 @@
+{
+  "id": "2873539",
+  "name": "qiongqi-template",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "588415",
+      "name": "云存储",
+      "font_class": "yuncunchu",
+      "unicode": "e6d3",
+      "unicode_decimal": 59091
+    },
+    {
+      "icon_id": "725697",
+      "name": "微信",
+      "font_class": "weixin1",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "859693",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "1236933",
+      "name": "朋友圈",
+      "font_class": "iconfontzhizuobiaozhunbduan36",
+      "unicode": "e6e9",
+      "unicode_decimal": 59113
+    },
+    {
+      "icon_id": "1246668",
+      "name": "支付宝支付",
+      "font_class": "zhifubaozhifu",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "9186713",
+      "name": "朋友圈",
+      "font_class": "pengyouquan",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "10265418",
+      "name": "VIP",
+      "font_class": "VIP",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "11810477",
+      "name": "管理员",
+      "font_class": "guanliyuan",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "16615493",
+      "name": "图标_支付-商户支付",
+      "font_class": "tubiao_zhifu-shanghuzhifu",
+      "unicode": "e690",
+      "unicode_decimal": 59024
+    },
+    {
+      "icon_id": "18166716",
+      "name": "支付,支付宝",
+      "font_class": "alipay",
+      "unicode": "e8de",
+      "unicode_decimal": 59614
+    },
+    {
+      "icon_id": "2448106",
+      "name": "订单管理",
+      "font_class": "dingdanguanli",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    }
+  ]
+}

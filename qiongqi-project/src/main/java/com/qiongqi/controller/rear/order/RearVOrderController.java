@@ -7,7 +7,7 @@ import com.qiongqi.modules.order.model.dto.VOrderDTO;
 import com.qiongqi.modules.order.service.VOrderService;
 import com.qiongqi.utils.AssertUtil;
 import com.qiongqi.utils.ValidatorUtils;
-import com.qiongqi.utils.controller.BaseController;
+import com.qiongqi.controller.base.BaseController;
 import com.qiongqi.utils.page.PageData;
 import com.qiongqi.utils.response.data.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;

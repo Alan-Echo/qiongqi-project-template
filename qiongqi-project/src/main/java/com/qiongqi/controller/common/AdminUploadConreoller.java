@@ -2,6 +2,7 @@ package com.qiongqi.controller.common;
 
 import com.qiongqi.modules.qiniu.model.dto.VQiniuDTO;
 import com.qiongqi.modules.qiniu.service.VQiniuService;
+import com.qiongqi.controller.base.BaseController;
 import com.qiongqi.utils.qiniu.QiniuUtil;
 import com.qiongqi.utils.response.code.ResponseCode;
 import com.qiongqi.utils.response.data.ResponseData;
@@ -21,7 +22,7 @@ import java.io.IOException;
  **/
 @RestController
 @RequestMapping("/upload")
-public class AdminUploadConreoller {
+public class AdminUploadConreoller extends BaseController {
 
     @Autowired
     private VQiniuService vQiniuService;

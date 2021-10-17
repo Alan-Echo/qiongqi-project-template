@@ -1,7 +1,11 @@
 package com.qiongqi.controller.rear.admin;
 
-import com.qiongqi.modules.admin.dto.VAdminDTO;
+import com.qiongqi.modules.admin.model.dto.VAdminDTO;
+import com.qiongqi.modules.admin.model.entity.VAdminEntity;
+import com.qiongqi.modules.admin.model.vo.VAdminVo;
 import com.qiongqi.modules.admin.service.VAdminService;
+import com.qiongqi.utils.ConvertUtils;
+import com.qiongqi.controller.base.BaseController;
 import com.qiongqi.utils.page.PageData;
 import com.qiongqi.utils.response.data.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +24,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin/")
-public class RearVAdminController {
+public class RearVAdminController extends BaseController {
 
     @Autowired
     private VAdminService vAdminService;
@@ -67,9 +71,9 @@ public class RearVAdminController {
      * @date : 2021-01-16 14:22:49
      */
     @GetMapping("info")
-    public ResponseData<VAdminDTO> get() {
-        VAdminDTO data = vAdminService.get();
-        return new ResponseData<VAdminDTO>().success(data);
+    public ResponseData<VAdminVo> get() {
+        VAdminEntity vAdminEntity = vAdminService.get(getUserId());
+        return new ResponseData<VAdminVo>().success(ConvertUtils.sourceToTarget(vAdminEntity, VAdminVo.class));
     }
 
     // ==================== 增、改、删 ====================

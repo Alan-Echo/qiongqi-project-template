@@ -5,7 +5,7 @@ import com.qiongqi.config.MybatisPlus.group.UpdateGroup;
 import com.qiongqi.modules.payconfig.model.dto.VPayconfigDTO;
 import com.qiongqi.modules.payconfig.service.VPayconfigService;
 import com.qiongqi.utils.ValidatorUtils;
-import com.qiongqi.utils.controller.BaseController;
+import com.qiongqi.controller.base.BaseController;
 import com.qiongqi.utils.response.data.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,8 +1,8 @@
 package com.qiongqi.modules.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.qiongqi.modules.admin.dto.VAdminDTO;
-import com.qiongqi.modules.admin.entity.VAdminEntity;
+import com.qiongqi.modules.admin.model.dto.VAdminDTO;
+import com.qiongqi.modules.admin.model.entity.VAdminEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -40,9 +40,6 @@ public interface VAdminMapper extends BaseMapper<VAdminEntity> {
 
     @Select("select * from V_ADMIN where userName = #{username}")
     VAdminDTO getByUserName(@Param("username") String username);
-
-    @Select("select * from V_ADMIN ")
-    VAdminDTO get();
 
     // ==================== ADD、MODIFY、REMOVE ===================
 

@@ -1,8 +1,8 @@
 package com.qiongqi.modules.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.qiongqi.modules.admin.entity.VRoleEntity;
-import com.qiongqi.modules.admin.dto.VRoleDTO;
+import com.qiongqi.modules.admin.model.entity.VRoleEntity;
+import com.qiongqi.modules.admin.model.dto.VRoleDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

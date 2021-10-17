@@ -19,11 +19,6 @@ public class VUserVo {
      */
     private String userName;
 
-//    /**
-//     * 用户昵称
-//     */
-//    private String password;
-
     /**
      * QQ
      */

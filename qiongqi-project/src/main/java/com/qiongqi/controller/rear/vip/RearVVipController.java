@@ -7,7 +7,7 @@ import com.qiongqi.modules.vip.model.dto.VVipDTO;
 import com.qiongqi.modules.vip.service.VVipService;
 import com.qiongqi.utils.AssertUtil;
 import com.qiongqi.utils.ValidatorUtils;
-import com.qiongqi.utils.controller.BaseController;
+import com.qiongqi.controller.base.BaseController;
 import com.qiongqi.utils.page.PageData;
 import com.qiongqi.utils.response.data.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;

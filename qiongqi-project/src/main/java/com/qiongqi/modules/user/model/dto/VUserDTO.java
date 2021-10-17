@@ -24,7 +24,7 @@ public class VUserDTO extends BasicDTO {
      * 用户昵称
      */
     private String userName;
-
+    private String password;
     /**
      * 积分
      */

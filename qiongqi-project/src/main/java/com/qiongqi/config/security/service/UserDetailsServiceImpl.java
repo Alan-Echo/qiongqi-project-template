@@ -1,7 +1,7 @@
 package com.qiongqi.config.security.service;
 
 import com.qiongqi.modules.admin.service.VAdminService;
-import com.qiongqi.modules.admin.dto.VAdminDTO;
+import com.qiongqi.modules.admin.model.dto.VAdminDTO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

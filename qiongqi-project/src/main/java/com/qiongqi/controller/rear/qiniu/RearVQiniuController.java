@@ -7,6 +7,7 @@ import com.qiongqi.modules.qiniu.model.dto.VQiniuDTO;
 import com.qiongqi.modules.qiniu.service.VQiniuService;
 import com.qiongqi.utils.AssertUtil;
 import com.qiongqi.utils.ValidatorUtils;
+import com.qiongqi.controller.base.BaseController;
 import com.qiongqi.utils.page.PageData;
 import com.qiongqi.utils.response.data.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin/vQiniu/")
-public class RearVQiniuController {
+public class RearVQiniuController extends BaseController {
 
     @Autowired
     private VQiniuService vQiniuService;

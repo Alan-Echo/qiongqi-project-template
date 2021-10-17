@@ -70,8 +70,6 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                 if (email != null){
                     return new UsernamePasswordAuthenticationToken(email, null,grantedAuthorities);
                 }
-        }else {
-            throw new XException(ResponseCode.USER_NOT_LOGIN);
         }
 //        } catch (Exception e) {
 //            return null;

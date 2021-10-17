@@ -3,8 +3,8 @@ package com.qiongqi.modules.admin.service;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.qiongqi.config.MybatisPlus.service.BaseServiceImpl;
-import com.qiongqi.modules.admin.dto.VAdminDTO;
-import com.qiongqi.modules.admin.entity.VAdminEntity;
+import com.qiongqi.modules.admin.model.dto.VAdminDTO;
+import com.qiongqi.modules.admin.model.entity.VAdminEntity;
 import com.qiongqi.modules.admin.mapper.VAdminMapper;
 import com.qiongqi.utils.ConvertUtils;
 import com.qiongqi.utils.page.PageData;
@@ -75,9 +75,8 @@ public class VAdminServiceImpl extends BaseServiceImpl<VAdminMapper, VAdminEntit
      * @date : 2021-01-16 14:22:49
      */
     @Override
-    public VAdminDTO get() {
-        VAdminDTO dto = baseMapper.get();
-        return dto;
+    public VAdminEntity get(Long userId) {
+        return baseMapper.selectById(userId);
     }
 
     // ==================== 增、改、删====================

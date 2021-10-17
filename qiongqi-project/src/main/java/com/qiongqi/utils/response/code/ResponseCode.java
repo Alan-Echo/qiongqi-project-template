@@ -48,7 +48,10 @@ public enum ResponseCode {
 
     Error404(404, "404 Not Found"),
 
-    serveError(500, "服务器异常");
+    serveError(500, "服务器异常"),
+
+    PAY_CONFIG_FAIL(600,"无效的支付配置"),
+    PAY_FAIL(601,"支付失败");
 
     /** token */
     public static final Long TokenExp = 2592000000L; //一个月有效期

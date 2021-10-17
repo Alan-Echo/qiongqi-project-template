@@ -6,6 +6,8 @@ import com.qiongqi.config.MybatisPlus.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.Date;
+
 /**
  * Description: 【 用户表 实体 】
  *
@@ -22,7 +24,12 @@ public class VUserEntity extends BaseEntity<VUserEntity> {
     // ==================== 字段名 ====================
 
     /**
-     * 微信ID
+     * 微信openId
+     */
+    @TableField(value = "openId")
+    private String openId;
+    /**
+     * 微信id
      */
     @TableField(value = "wxId")
     private String wxId;
@@ -34,85 +41,40 @@ public class VUserEntity extends BaseEntity<VUserEntity> {
     private String userName;
 
     /**
-     * 用户积分
+     * 用户昵称
      */
-    @TableField(value = "score")
-    private Integer score;
+    @TableField(value = "password")
+    private String password;
 
     /**
-     * 用户头像
+     * QQ
      */
-    @TableField(value = "avatar")
-    private String avatar;
+    @TableField(value = "qq")
+    private String qq;
 
     /**
-     *  机器人表的Id
+     * 邮箱
      */
-    @TableField(value = "robotId")
-    private Long robotId;
-
-    /**
-     *  上级id
-     */
-    @TableField(value = "pid")
-    private Long pid;
-
-    /**
-     *  群名
-     */
-    @TableField(value = "groupName")
-    private String groupName;
-
-    /**
-     *  群wxId
-     */
-    @TableField(value = "groupWxId")
-    private String groupWxId;
-
-
-    /**
-     * 微信ID
-     */
-    @TableField(value = "openId")
-    private String openId;
-
-    /**
-     * 微信用户昵称
-     */
-    @TableField(value = "nickName")
-    private String nickName;
-
-
-    /**
-     * 性别 0-未知 1-男,2-女
-     */
-    @TableField(value = "gender")
-    private Integer gender;
-
-    /**
-     * 用户country
-     */
-    @TableField(value = "country")
-    private String country;
-
-    /**
-     * 用户city
-     */
-    @TableField(value = "city")
-    private String city;
+    @TableField(value = "email")
+    private String email;
 
     /**
      * 用户province
      */
-    @TableField(value = "province")
-    private String province;
+    @TableField(value = "phone")
+    private String phone;
 
     /**
-     * 用户会话密钥
+     * 是否是VIP;1:是;0:否
      */
-    @TableField(value = "sessionKey")
-    private String sessionKey;
+    @TableField(value = "isVip")
+    private Integer isVip;
 
+    /**
+     * vip到期时间
+     */
+    @TableField(value = "expiredTime")
+    private Date expiredTime;
     // ==================== 非持久 ====================
 
 

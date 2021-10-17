@@ -1,8 +1,8 @@
 package com.qiongqi.modules.admin.service;
 
 import com.qiongqi.config.MybatisPlus.service.BaseService;
-import com.qiongqi.modules.admin.dto.VAdminDTO;
-import com.qiongqi.modules.admin.entity.VAdminEntity;
+import com.qiongqi.modules.admin.model.dto.VAdminDTO;
+import com.qiongqi.modules.admin.model.entity.VAdminEntity;
 import com.qiongqi.utils.page.PageData;
 
 import java.util.List;
@@ -45,13 +45,12 @@ public interface VAdminService extends BaseService<VAdminEntity> {
     /**
      * Description:【 通过ID获取单条数据 】
      *
-     * @param id
      * @return
      * @author: ※狗尾巴草
      * @email: "m962464oo@gmail.com"
      * @date: 2021-01-16 14:22:49
      */
-    VAdminDTO get();
+    VAdminEntity get(Long userId);
 
     // ==================== ADD、MODIFY、REMOVE ===================
 
