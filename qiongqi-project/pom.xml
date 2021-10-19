@@ -12,7 +12,7 @@
     <artifactId>guaika-video</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>guaika-video</name>
-    <description>怪咖影视</description>
+    <description>项目模板</description>
 
     <properties>
         <java.version>1.8</java.version>
